@@ -1,6 +1,6 @@
 <%- include('_partial/head') %>
 <%- include('_partial/main-part') %>
-<% if (is_home()) { %>
+<% if (is_home() && theme.frontpage.banner.enable) { %>
     <%- include('_partial/banner') %>
 <% } %>
 <div class="paper">

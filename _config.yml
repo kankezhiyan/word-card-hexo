@@ -1,5 +1,5 @@
 menu:
-  首页: /home
+  文章: /articles
   归档: /archives
   分类: /categories
   活动: /activity
@@ -8,7 +8,62 @@ menu:
 max_items_each: 3
 max_type_each: 5
 
-motto: "一个简洁、优雅、阅读向的hexo主题"
+# 主页
+frontpage:
+  # 主页banner
+  banner:
+    # 是否开启banner
+    enable: true
 
-hitokoto: true
-hitokoto-url: https://v1.hitokoto.cn/
+    # banner头像图片
+    avatar: img/logo.png
+    # banner标题
+    title: word-card
+    # banner副标题
+    motto: 一个简洁、优雅、阅读向的hexo主题
+
+    # 动态一言
+    hitokoto:
+      # 是否开启动态一言
+      enable: true
+
+      # 一言api
+      hitokoto_url: https://v1.hitokoto.cn/
+
+      # 自定义一言展示内容，开启后优先级高于一言api
+      custom: false
+      # 自定义一言文件链接
+      # 可以参考json目录下的示例文件
+      custom_url: json/hitokoto.json
+      # 点击区域跳转链接
+      custom_link: /
+
+  # 主页内容
+  main:
+    # 展示主页md内容
+    content:
+      # 是否开启
+      enable: false
+      # 是否显示md标题
+      title_enable: false
+
+    # 主页介绍区
+    introduction:
+      # 是否开启
+      enable: true
+      
+      # 展示区内容表
+      intro:
+      # 想增加条目，复制下方内容并在intro下重复即可
+      # 内容开始
+        content:
+          # 图片链接
+          img: 
+          # 标题
+          title: word-card
+          text: 一个简洁、优雅、阅读向的hexo主题
+          link: /about
+          blank_target: false
+      # 内容结束
+        
+  

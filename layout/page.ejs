@@ -1,11 +1,11 @@
 <% if (is_current(theme.menu.活动)) { %>
-    <%- incloud('activity') %>
+    <%- include('activity') %>
 <% } else if (is_current(theme.menu.分类)) { %>
-    <%- incloud('category') %>
-<% } else if (is_current(theme.menu.首页)) { %>
-    <%- incloud('home') %>
+    <%- include('category') %>
+<% } else if (is_current(theme.menu.文章)) { %>
+    <%- include('articles') %>
 <% }else if (is_current(theme.menu.关于)) { %>
-    <%- incloud('about') %>
+    <%- include('about') %>
 <% } else if (is_current('/tags')) { %>
-    <%- incloud('tag') %>
+    <%- include('tag') %>
 <% } %>

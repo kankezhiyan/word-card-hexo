@@ -1,19 +1,41 @@
 <div class="banner">
     <div class="banner-container">
-        <div class="avatar-box"><a id="avatar" class="avatar"
-                href=""><img src="<%- url_for('/img/logo.png') %>" class="avatar-style" alt="avatar"></a>
+        <div class="avatar-box">
+            <a id="avatar" class="avatar" href="">
+                <img src="<%= theme.frontpage.banner.avatar %>" class="avatar-style" alt="avatar">
+            </a>
         </div>
         <div class="title-box">
-            <div id="site-title" class="site-title"><%= config.title %></div>
-            <div class="motto-box"><span id="site-motto" class="site-motto"><%= theme.motto %></span></div>
-            <% if (theme.hitokoto) { %>
-            <a id="sentences" class="sentences" href="" target="_blank">
-                <div class="sentences-box">
-                    <span id="words" class="sentences-words"></span>
-                    <span id="author" class="sentences-author"></span>
-                </div>
-            </a>
-            <script src="js/flowing-sentences.js"></script>
+            <div id="site-title" class="site-title">
+                <%= theme.frontpage.banner.title %>
+            </div>
+            <div class="motto-box"><span id="site-motto" class="site-motto">
+                    <%= theme.frontpage.banner.motto %>
+                </span></div>
+            <% if (theme.frontpage.banner.hitokoto.enable) { %>
+                <a id="sentences" class="sentences" href="" target="_blank">
+                    <div class="sentences-box">
+                        <span id="words" class="sentences-words"></span>
+                        <span id="author" class="sentences-author"></span>
+                    </div>
+                </a>
+                <% if (theme.frontpage.banner.hitokoto.custom) { %>
+                <script>
+                    window.wordcardSentencesConfig = {
+                        source: 'custom',
+                        customUrl: '<%= theme.frontpage.banner.hitokoto.custom_url %>',
+                        customLink: '<%= theme.frontpage.banner.hitokoto.custom_link %>'
+                    }
+                </script>
+                    <% } else { %>
+                <script>
+                    window.wordcardSentencesConfig = {
+                        source: 'hitokoto',
+                        apiUrl: '<%= theme.frontpage.banner.hitokoto.hitokoto_url %>'
+                    }
+                </script>
+            <% } %>
+                        <script src="js/flowing-sentences.js"></script>
             <% } %>
         </div>
     </div>
