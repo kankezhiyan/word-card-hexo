@@ -1,0 +1,14 @@
+menu:
+  首页: /home
+  归档: /archives
+  分类: /categories
+  活动: /activity
+  关于: /about
+
+max_items_each: 3
+max_type_each: 5
+
+motto: "一个简洁、优雅、阅读向的hexo主题"
+
+hitokoto: true
+hitokoto-url: https://v1.hitokoto.cn/

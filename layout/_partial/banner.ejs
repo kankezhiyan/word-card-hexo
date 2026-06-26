@@ -1,0 +1,23 @@
+<div class="banner">
+    <div class="banner-container">
+        <div class="avatar-box"><a id="avatar" class="avatar"
+                href=""><img src="<%- url_for('/img/logo.png') %>" class="avatar-style" alt="avatar"></a>
+        </div>
+        <div class="title-box">
+            <div id="site-title" class="site-title"><%= config.title %></div>
+            <div class="motto-box"><span id="site-motto" class="site-motto"><%= theme.motto %></span></div>
+            <% if (theme.hitokoto) { %>
+            <a id="sentences" class="sentences" href="" target="_blank">
+                <div class="sentences-box">
+                    <span id="words" class="sentences-words"></span>
+                    <span id="author" class="sentences-author"></span>
+                </div>
+            </a>
+            <script src="js/flowing-sentences.js"></script>
+            <% } %>
+        </div>
+    </div>
+    <div id="scroll-down" class="scroll-down">
+        <i id="scroll-trigger" class="scroll-trigger fa fa-angle-down"></i>
+    </div>
+</div>

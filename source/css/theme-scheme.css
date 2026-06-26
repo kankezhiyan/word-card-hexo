@@ -1,0 +1,79 @@
+:root {
+    --font-color-0: #105d93;
+    --font-color-1: #000;
+    --font-color-2: #333;
+    --font-color-3: #aaa;
+    --font-color-4: #eee;
+    --font-color-5: #eee;
+    --bg-color-1: #eee;
+    --bg-color-2: #ccc;
+    --bg-color-3: #dcdcdccc;
+    --bg-color-4: #111;
+    --bg-color-5: #e6e6e6;
+    --bg-color-6: #000;
+    --line-1: #333;
+    --line-2: #ddd;
+    --border-color-0: #105d93;
+    --border-color-1: #333;
+    --border-color-2: #33333333;
+    --border-color-3: #ffffff66;
+    --shadow-1: #4b4b4b66;
+    --bg-brightness: brightness(60%);
+    --bg-contrast: contrast(100%);
+    --card-brightness: brightness(100%);
+    --card-bg-blur: blur(8px);
+    --global-grayscale: grayscale(0%);
+    --global-brightness: brightness(100%);
+    --global-contrast: contrast(100%);
+    --check-box: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(0,0,0)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>");
+}
+
+[data-theme-scheme='day'] {
+    --bg-image: url(../img/default-background/day.webp);
+}
+
+[data-theme-scheme='sunset'] {
+    --bg-image: url(../img/default-background/sunset.webp);
+    --card-brightness: brightness(90%);
+    --global-brightness: brightness(95%);
+}
+
+[data-theme-scheme='night'] {
+    --bg-image: url(../img/default-background/night.webp);
+    --card-brightness: brightness(85%);
+    --global-brightness: brightness(90%);
+}
+
+[data-theme-scheme='lowlight'],
+[data-theme-scheme='moonlight'] {
+    --bg-image: url(../img/default-background/moonlight.webp);
+    --font-color-0: #479bd2;
+    --font-color-1: #eee;
+    --font-color-2: #aaa;
+    --font-color-3: #333;
+    --font-color-4: #000;
+    --bg-color-1: #000;
+    --bg-color-2: #444;
+    --bg-color-3: #232323cc;
+    --bg-color-4: #ccc;
+    --bg-color-5: #191919;
+    --line-1: #ddd;
+    --line-2: #333;
+    --border-color-0: #479bd2;
+    --border-color-1: #ddd;
+    --border-color-2: #cccccc33;
+    --border-color-3: #11111166;
+    --shadow-1: #99999944;
+    --card-bg-blur: blur(4px);
+    --check-box: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(238,238,238)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 12 10 18 20 6'/></svg>");
+}
+
+[data-theme-scheme='moonlight'] {
+    --card-brightness: brightness(80%);
+    --global-brightness: brightness(85%);
+}
+
+[data-theme-scheme='lowlight'] {
+    --card-brightness: brightness(70%);
+    --global-brightness: brightness(50%);
+}

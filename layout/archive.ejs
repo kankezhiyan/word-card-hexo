@@ -1,0 +1,47 @@
+<% 
+var lastYear,
+    lastMonth,
+    currentYear,
+    currentMonth
+%>
+<section class="archive-list">
+    <% page.posts.sort('date', 'desc').each(function(post) { %>
+        <% 
+            currentYear = post.date.year()
+            currentMonth = post.date.format('MM')
+        %>
+        <% if (currentYear != lastYear) { %>
+            <% if (lastYear != null) { %>
+                <% lastMonth = null %>
+                </section>
+                <section class="archive-list">
+            <% } %>
+            <h3 class="archive-year">
+                <a class="archive-sub" href="<%- url_for('archives/' + currentYear) %>"><%= currentYear %></a>
+            </h3>
+            <% lastYear = currentYear %>
+        <% } %>
+        <% if (currentMonth != lastMonth) { %>
+            <% if (lastMonth != null) { %>
+            </ul>  
+            <% } %>
+            <h4 class="archive-month">
+                <a class="archive-sub" href="<%- url_for('archives/' + post.date.format('YYYY/MM')) %>"><%= currentMonth %>月</a>
+            </h4>
+            <% lastMonth = currentMonth %>
+            <ul class="archive timeline">
+        <% } %>
+        <li>
+            <span class="archive-date"><%= date(post.date, "YY.MM.DD") %></span>
+            <div class="archive-main">
+                <a class="archive-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+                <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">by：<%= post.tags.data[0].name %></a>
+                <a class="archive-info" href="<%- url_for(post.categories.data[0].path) %>"><%= post.categories.data[0].name %></a>
+                <% if (post.tags.data.length > 1) { %>
+                    <a class="archive-info" href="<%- url_for(post.tags.data[1].path) %>">《<%= post.tags.data[1].name.replace("》》》", "") %>》</a>
+                <% } %>
+            </div>
+        </li>
+    <% }) %>
+</section>
+<%- partial('_partial/paginator') %>

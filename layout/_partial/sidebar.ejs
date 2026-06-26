@@ -1,0 +1,22 @@
+<div class="left-returnbar" id="left-returnbar">
+    <% if (is_post() || is_archive()) { %>
+    <a onclick="if(history.length>1){history.back();}return false;">
+        <i class="fa fa-angle-double-left"></i>
+        <span class="side-text">返回</span>
+    </a>
+    <a href="/home">
+        <i class="fa fa-home"></i>
+        <span class="side-text">主页</span>
+    </a>
+    <% } %>
+    <div class="side-bar" id="side-bar">
+        <a href="#top" id="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+            <span class="side-text">回顶</span>
+        </a>
+        <a id="share-page">
+            <i class="fa fa-share"></i>
+            <span class="side-text">分享</span>
+        </a>
+    </div>
+</div>

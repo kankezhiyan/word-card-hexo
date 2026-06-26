@@ -1,0 +1,42 @@
+<div class="post-main post-main-content">
+
+    <% if (is_post()) { %>
+        <div class="post-content post-articel">
+            <%- page.content %>
+        </div>
+        <div class="post-btn">
+            <a href="<%- url_for(page.tags.data[0].path) %>" class="fast-btn"><i class="fa fa-eye"></i>作者</a>
+            <% if (page.tags.data.length > 1) { %>
+                <% 
+                series = page.tags.data[1]
+                series_data = series.posts.sort('date', 'desc')
+                %>
+                <% if (series_data.length > 1) {%>
+                    <% page_index = -1 %>
+                    <% for(var i = 0; i < series_data.length; i++) {
+                        if(series_data.data[i].path === page.path) {
+                            page_index = i
+                        }
+                    }%>
+                    <% if (page_index > -1) {%>
+                        <div class="full-series">
+                            <% if (page_index < (series_data.length - 1)) { %>
+                                <a href="<%- url_for(series_data.data[page_index + 1].path) %>" class="fast-btn"><i class="fa fa-chevron-left"></i>上章</a>
+                            <% } %>
+                            <a href="<%- url_for(series.path) %>" class="fast-btn">章节</a>
+                            <% if (page_index !== 0) { %>
+                                <a href="<%- url_for(series_data.data[page_index - 1].path) %>" class="fast-btn">下章 <i class="fa fa-chevron-right"></i></a>
+                            <% } %>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <a href="<%- url_for(series.path) %>" class="fast-btn"><i class="fa fa-eye"></i>章节</a>
+                <% } %>
+            <% } %>
+        </div>
+    <% } else { %>
+        <div class="post-md">
+            <%- page.content %>
+        </div>
+    <% } %>
+</div>

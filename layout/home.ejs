@@ -1,0 +1,27 @@
+<div class="post-list">
+    <% var posts = (page.posts || site.posts).sort({date: -1}); %>
+    <% posts.each(function (post) { %>
+    <div class="post">
+        <a class="post-title" href="<%- url_for(post.path) %>">
+            <%= post.title %>
+        </a>
+        <% if (post.categories.data.length > 0) { %>
+        <div class="post-info"><i class="fa fa-bookmark-o"></i><a href="<%- url_for(post.categories.data[0].path) %>" class="post-cat"><%= post.categories.data[0].name %></a></div>
+        <% } %>
+        <% if (post.tags.data.length > 0) { %>
+        <div class="post-info"><a href="<%- url_for(post.tags.data[0].path) %>" class="post-author">by：<%= post.tags.data[0].name %></a></div>
+        <% } %>
+        <div class="post-info">约<%= symbolsCount(post) %>字 | 需 <%= symbolsTime(post) %></div>
+        <div class="post-except">
+            <% if (post.short) { %>
+                <%= post.short %>
+            <% } else { %>
+                <%- strip_html(post.content).substr(0, 240) %>
+            <% } %>
+            <a class="read-more" href="<%- url_for(post.path) %>"> ... </a>
+        </div>
+        <div class="post-date"><%- date(post.date, "YYYY.MM.DD" ) %></div>
+    </div>
+    <% }) %>
+</div>
+<%- include('_partial/paginator') %>

@@ -1,0 +1,16 @@
+<div class="post-header post-header-sticky">
+    <div class="post-main post-header-info">
+        <div class="post-main-title">
+            <%= page.title %>
+        </div>
+        <div class="post-meta" style="margin-bottom: 0;">
+            by：<%= page.tags.data[0].name %>
+        </div>
+        <div class="post-meta" style="margin-bottom: 0;">
+            约<%= symbolsCount(page) %>字 | 需 <%= symbolsTime(page) %>
+        </div>
+        <div class="post-meta">
+            <%- date(page.date, "YYYY-MM-DD" ) %>
+        </div>
+    </div>
+</div>

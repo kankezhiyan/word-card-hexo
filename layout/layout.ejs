@@ -1,0 +1,16 @@
+<%- include('_partial/head') %>
+<%- include('_partial/main-part') %>
+<% if (is_home()) { %>
+    <%- include('_partial/banner') %>
+<% } %>
+<div class="paper">
+    <div id="paper-main"  class="paper-main">
+        <% if (is_post() || is_category() || is_tag() || is_archive()) { %>
+            <%- include('_partial/post-header') %>
+        <% } else { %>
+            <%- include('_partial/header') %>
+        <% } %>
+        <%- body %>
+        <%- include('_partial/footer') %>
+    </div>
+</div>

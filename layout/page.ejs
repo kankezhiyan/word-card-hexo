@@ -1,0 +1,11 @@
+<% if (is_current(theme.menu.活动)) { %>
+    <%- incloud('activity') %>
+<% } else if (is_current(theme.menu.分类)) { %>
+    <%- incloud('category') %>
+<% } else if (is_current(theme.menu.首页)) { %>
+    <%- incloud('home') %>
+<% }else if (is_current(theme.menu.关于)) { %>
+    <%- incloud('about') %>
+<% } else if (is_current('/tags')) { %>
+    <%- incloud('tag') %>
+<% } %>
