@@ -5,7 +5,7 @@
 <% } %>
 <div class="paper">
     <div id="paper-main"  class="paper-main">
-        <% if (is_post() || is_category() || is_tag() || is_archive()) { %>
+        <% if (is_post()) { %>
             <%- include('_partial/post-header') %>
         <% } else { %>
             <%- include('_partial/header') %>

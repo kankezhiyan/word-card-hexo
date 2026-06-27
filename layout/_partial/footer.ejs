@@ -1,11 +1,29 @@
 <div class="footer">
-    <span>&copy; 2021-
+    <% if (theme.footer.icp.enable) { %>
+        <span><a target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index/"> <%= theme.footer.icp.id %></a></span>
+    <% } %>
+    <% if (theme.footer.beian.enable) { %>
+        <div class="beian">
+            <span><img src="/img/icp.png" alt="beian"></span>
+            <span><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo"><%= theme.footer.beian.id %></a></span>
+        </div>
+    <% } %>
+    <% if (theme.footer.custom_link.enable) { %> 
+        <span><a target="_blank" href="<%= theme.footer.custom_link.link %>"><%= theme.footer.custom_link.text %></a></span>
+    <% } %>
+    <span>&copy; <%= theme.footer.copyright.year %>-
         <script>
             document.write((new Date).getFullYear());</script>
         <%= config.author %>
     </span>
+    <% if (theme.footer.custom_text.enable) { %> 
+        <span><%= theme.footer.custom_text.text %></span>
+    <% } %>
     <span><a target="_blank" href="https://github.com/kankezhiyan/word-card-hexo">word-card</a> | <a target="_blank"
             href="https://hexo.io/">Hexo</a></span>
+    <% if (theme.footer.bg_info.enable) { %> 
+        <span>background by <strong>ArseniXC</strong></span>
+    <% } %>
 </div>
 </body>
 

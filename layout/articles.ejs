@@ -1,17 +1,23 @@
 <div class="post-list">
-    <% var posts = (page.posts || site.posts).sort({date: -1}); %>
+    <% var posts = page.__articles_pagination ? page.posts : ((page.posts && page.posts.length) ? page.posts : site.posts).sort({date: -1}); %>
     <% posts.each(function (post) { %>
     <div class="post">
         <a class="post-title" href="<%- url_for(post.path) %>">
             <%= post.title %>
         </a>
-        <% if (post.categories.data.length > 0) { %>
-        <div class="post-info"><i class="fa fa-bookmark-o"></i><a href="<%- url_for(post.categories.data[0].path) %>" class="post-cat"><%= post.categories.data[0].name %></a></div>
+        <div class="post-info">
+         <% post.categories.each(function(category) { %>
+            <i class="fa fa-bookmark-o"></i><a href="<%- url_for(category.path) %>" class="post-cat"><%= category.name %></a>
+        <% }) %>
+        </div>
+        <div class="post-info">
+        <% post.tags.each(function(tag) { %>
+            <a href="<%- url_for(tag.path) %>" class="post-tag"><%= tag.name %></a>
+        <% }) %>
+        </div>
+        <% if (config.symbols_count_time.symbols) { %>
+            <div class="post-info">约<%= symbolsCount(post) %>字 | 需 <%= symbolsTime(post) %></div>
         <% } %>
-        <% if (post.tags.data.length > 0) { %>
-        <div class="post-info"><a href="<%- url_for(post.tags.data[0].path) %>" class="post-author">by：<%= post.tags.data[0].name %></a></div>
-        <% } %>
-        <div class="post-info">约<%= symbolsCount(post) %>字 | 需 <%= symbolsTime(post) %></div>
         <div class="post-except">
             <% if (post.short) { %>
                 <%= post.short %>
@@ -24,4 +30,54 @@
     </div>
     <% }) %>
 </div>
-<%- include('_partial/paginator') %>
+<% if (page.__articles_pagination && page.total > 1) { %>
+<div class="paginator">
+    <% if (page.prev) { %>
+        <a class="page-number prev" rel="prev" href="<%- url_for(page.prev_link) %>"><i class="fa fa-chevron-left"></i></a>
+    <% } else { %>
+        <span class="page-number prev disabled"><i class="fa fa-chevron-left"></i></span>
+    <% } %>
+    
+    <% 
+    var showPages = []
+    var current = page.current
+    var total = page.total
+    var base = page.base
+    %>
+    
+    <% for (var i = 1; i <= total; i++) {
+        if (i === 1 || i === total || (i >= current - 1 && i <= current + 1)) {
+            showPages.push(i);
+        } else if (showPages[showPages.length - 1] !== '...') {
+            showPages.push('...');
+        }
+    }%>
+    
+    <% showPages.forEach(function(p) { %>
+       <% if (p === '...') { %>
+        <span class="space">…</span>
+    <%  } else { %>
+        <% var link = p === 1 ? base : base + 'page/' + p + '/'  %>
+        <% if (p === current) { %>
+            <span class="page-number current"><%= p %></span>
+        <% } else { %>
+            <a class="page-number" href="<%- url_for(link) %>"><%= p %></a>
+        <% } %>
+    <%  } %>
+    <% }); %>
+    
+    <% if (page.next) { %>
+        <a class="page-number next" rel="next" href="<%- url_for(page.next_link) %>"><i class="fa fa-chevron-right"></i></a>
+    <% } else { %>
+        <span class="page-number next disabled"><i class="fa fa-chevron-right"></span>
+    <% } %>
+    <div class="page-jump">
+        <span class="page-jump-label">跳至第</span>
+        <input type="number" class="page-jump-input" min="1" max="<%= page.total %>" value="<%= page.current %>" data-base="<%- url_for(page.base) %>">
+        <span class="page-jump-label">页</span>
+        <button type="button" class="page-jump-go"><i class="fa fa-arrow-right"></i></button>
+    </div>
+</div>
+<% } else { %>
+    <%- include('_partial/paginator') %>
+<% } %>

@@ -1,0 +1,21 @@
+<% if (theme.frontpage.main.introduction.enable) {%>
+    <div class="post-main post-main-content">
+        <div class="frontpage-post">
+            <% let content_list = theme.frontpage.main.introduction.intro %>
+            <% content_list.forEach(function(intro){ %>
+                <div class="front-post-container">
+                    <div class="post-left">
+                        <img src="<%= intro.img %>" alt="<%= intro.title %>">
+                    </div>
+                    <div class="post-right">
+                        <h2 class="post-right-title"><%= intro.title %></h2>
+                        <div class="post-right-content"><%= intro.text %></div>
+                        <div class="post-right-more">
+                            <a href="<%= intro.link %>" <% if (intro.blank_target) { target="_blank" } %>><%= intro.link_text %></a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<% } %>

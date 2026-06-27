@@ -3,12 +3,16 @@
         <div class="post-main-title">
             <%= page.title %>
         </div>
-        <div class="post-meta" style="margin-bottom: 0;">
-            by：<%= page.tags.data[0].name %>
+        <div class="post-meta">
+           <% page.tags.each(function(tag) { %>
+                <span class="post-tag"><%= tag.name %></span>
+            <% }) %>
         </div>
-        <div class="post-meta" style="margin-bottom: 0;">
-            约<%= symbolsCount(page) %>字 | 需 <%= symbolsTime(page) %>
-        </div>
+        <% if (config.symbols_count_time.symbols) { %>
+            <div class="post-meta">
+                约<%= symbolsCount(page) %>字 | 需 <%= symbolsTime(page) %>
+            </div>
+        <% } %>
         <div class="post-meta">
             <%- date(page.date, "YYYY-MM-DD" ) %>
         </div>

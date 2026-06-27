@@ -1,8 +1,71 @@
 <% if (page.total > 1){ %>
 <div class="paginator">
-    <%- paginator({
-        prev_text: '上一页',
-        next_text: '下一页'
-    }) %>
+    <% 
+    var current = page.current
+    var total = page.total
+    var base = page.base || '/'
+    var prev = page.prev
+    var next = page.next
+    
+    var prevLink = '#'
+    var nextLink = '#'
+    
+    if (current === 1) {
+        prevLink = '#'
+    } else if (current === 2) {
+        prevLink = base;
+    } else {
+        prevLink = base + 'page/' + (current - 1) + '/'
+    }
+    
+    if (current === total) {
+        nextLink = '#'
+    } else {
+        nextLink = base + 'page/' + (current + 1) + '/'
+    }
+    %>
+    
+    <% if (prev) { %>
+        <a class="page-number prev" rel="prev" href="<%- url_for(prevLink) %>"><i class="fa fa-chevron-left"></i></a>
+    <% } else { %>
+        <span class="page-number prev disabled"><i class="fa fa-chevron-left"></i></span>
+    <% } %>
+    
+    <% 
+    var showPages = [];
+    for (var i = 1; i <= total; i++) {
+        if (i === 1 || i === total || (i >= current - 1 && i <= current + 1)) {
+            showPages.push(i)
+        } else if (showPages[showPages.length - 1] !== '...') {
+            showPages.push('...')
+        }
+    }
+    %>
+    
+    <% showPages.forEach(function(p) { %>
+       <% if (p === '...') { %>
+        <span class="space">…</span>
+    <%  } else { %>
+        <% var link = p === 1 ? base : base + 'page/' + p + '/'  %>
+        <% if (p === current) { %>
+            <span class="page-number current"><%= p %></span>
+        <% } else { %>
+            <a class="page-number" href="<%- url_for(link) %>"><%= p %></a>
+        <% } %>
+    <%  } %>
+    <% }) %>
+    
+    <% if (next) { %>
+        <a class="page-number next" rel="next" href="<%- url_for(nextLink) %>"><i class="fa fa-chevron-right"></i></a>
+    <% } else { %>
+        <span class="page-number next disabled"><i class="fa fa-chevron-right"></i></span>
+    <% } %>
+    
+    <div class="page-jump">
+        <span class="page-jump-label">跳至第</span>
+        <input type="number" class="page-jump-input" min="1" max="<%= total %>" value="<%= current %>" data-base="<%- url_for(base) %>">
+        <span class="page-jump-label">页</span>
+        <button type="button" class="page-jump-go"><i class="fa fa-arrow-right"></i></button>
+    </div>
 </div>
 <% } %>

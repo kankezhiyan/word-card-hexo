@@ -1,3 +1,20 @@
+<div class="cat-box">
+    <div class="cat-title">年份：</div>
+    <div class="cat-list">
+        <% 
+        let years = {}
+        site.posts.each(function(post) {
+            let year = post.date.year()
+            if (!years[year]) years[year] = 0
+            years[year]++
+        }) %>
+        <% Object.keys(years).sort().reverse().forEach(function(year) { %>
+            <div class="cat-item">
+                <a href="<%- url_for('archives/' + year) %>"><%= year %>(<%= years[year] %>)</a>
+            </div>
+        <% }) %>
+    </div>
+</div>
 <% 
 var lastYear,
     lastMonth,
@@ -35,11 +52,12 @@ var lastYear,
             <span class="archive-date"><%= date(post.date, "YY.MM.DD") %></span>
             <div class="archive-main">
                 <a class="archive-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
-                <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">by：<%= post.tags.data[0].name %></a>
-                <a class="archive-info" href="<%- url_for(post.categories.data[0].path) %>"><%= post.categories.data[0].name %></a>
-                <% if (post.tags.data.length > 1) { %>
-                    <a class="archive-info" href="<%- url_for(post.tags.data[1].path) %>">《<%= post.tags.data[1].name.replace("》》》", "") %>》</a>
-                <% } %>
+                <a class="archive-info" href="<%- url_for(post.categories.data[0].path) %>">
+                    <%= post.categories.data[0].name %>
+                </a>
+                <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">
+                    <%= post.tags.data[0].name %>
+                </a>
             </div>
         </li>
     <% }) %>

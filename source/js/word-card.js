@@ -114,56 +114,17 @@
         })
     }
 
-    var initThemeBox = function () {
-        var themeMask = document.getElementById('theme-mask');
-        var themeUser = document.getElementById('theme-user');
-        var themeSearch = document.getElementById('theme-search');
-        var themeUserBox = document.getElementById('theme-user-box');
-        var themeSearchBox = document.getElementById('theme-search-box');
-        var bodyStyle = document.body.style;
-
-        if (!themeMask || !themeUser || !themeSearch || !themeUserBox || !themeSearchBox || !bodyStyle) return;
-
-        var hideAll = function () {
-            themeUserBox.classList.remove('theme-bar-appear');
-            themeSearchBox.classList.remove('theme-bar-appear');
-            themeMask.classList.remove('mark-appear');
-            bodyStyle.removeProperty('overflow', 'hidden');
-        };
-
-        themeUser.addEventListener('click', function (e) {
-            e.stopPropagation();
-            hideAll();
-            themeMask.classList.add('mark-appear');
-            themeUserBox.classList.add('theme-bar-appear');
-            bodyStyle.setProperty('overflow', 'hidden');
-        });
-
-        themeSearch.addEventListener('click', function (e) {
-            e.stopPropagation();
-            hideAll();
-            themeMask.classList.add('mark-appear');
-            themeSearchBox.classList.add('theme-bar-appear');
-            bodyStyle.setProperty('overflow', 'hidden');
-        });
-
-        themeMask.addEventListener('click', function () {
-            hideAll();
-        });
-    };
-
     var initAll = function () {
-        initBackToTop();
-        initScrollDown();
-        initDynamicTitle();
-        initSidebarMovement();
+        initBackToTop()
+        initScrollDown()
+        initDynamicTitle()
+        initSidebarMovement()
         initLinkShare()
-        initThemeBox();
     };
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAll);
+        document.addEventListener('DOMContentLoaded', initAll)
     } else {
-        initAll();
+        initAll()
     }
 })();

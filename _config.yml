@@ -5,8 +5,7 @@ menu:
   活动: /activity
   关于: /about
 
-max_items_each: 3
-max_type_each: 5
+# 文章计数（需要hexo-symbols-count-time插件）
 
 # 主页
 frontpage:
@@ -40,30 +39,76 @@ frontpage:
 
   # 主页内容
   main:
-    # 展示主页md内容
-    content:
-      # 是否开启
-      enable: false
-      # 是否显示md标题
-      title_enable: false
-
     # 主页介绍区
     introduction:
       # 是否开启
       enable: true
-      
+
       # 展示区内容表
-      intro:
-      # 想增加条目，复制下方内容并在intro下重复即可
-      # 内容开始
-        content:
-          # 图片链接
-          img: 
-          # 标题
-          title: word-card
-          text: 一个简洁、优雅、阅读向的hexo主题
-          link: /about
-          blank_target: false
-      # 内容结束
-        
-  
+      intro: [
+          # 想增加条目，复制下方内容并在intro下重复即可
+          # 内容开始
+          {
+            # 图片链接
+            img: /img/logo.png,
+            # 标题
+            title: word-card,
+            # 描述文本
+            text: 一个简洁、优雅、阅读向的hexo主题,
+            # 链接
+            link: /about,
+            # 链接文本
+            link_text: 了解更多,
+            # 是否在新标签页打开链接
+            blank_target: false,
+          },
+          # 内容结束
+          {
+            img: /img/logo.png,
+            title: word-card,
+            text: 一个简洁、优雅、阅读向的hexo主题,
+            link: /about,
+            link_text: 了解更多,
+            blank_target: false,
+          },
+        ]
+
+# 页脚内容
+footer:
+  icp:
+    # 是否开启
+    enable: true
+    # ICP备案号
+    id: XICP备xxxx号
+
+  beian:
+    # 是否开启
+    enable: true
+    # 公安备案号
+    id: X公网安备xxxxx号
+
+  copyright:
+    year: 2021
+
+  custom_link:
+    # 是否开启
+    enable: true
+    # 自定义链接文本
+    text: 欢迎访问主题仓库
+    # 自定义链接
+    link: https://github.com/kankezhiyan/word-card-hexo
+
+  custom_text:
+    # 是否开启
+    enable: true
+    # 自定义文本
+    text: 感谢使用该主题
+
+  # 如果使用主题默认背景图片，请保持开启
+  bg_info:
+    # 是否开启
+    enable: true
+    
+
+# 类目/标签大于这个数量时，将自动折叠
+max_items_each: 3

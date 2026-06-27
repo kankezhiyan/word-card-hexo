@@ -8,25 +8,19 @@
         %>
     <% } %>
 <% }) %>
-<% if (!posts.length) { %>
-    <div class="cat-box">
-        <div class="cat-title">分类条件：</div>
-        <div class="cat-list">
-            <div class="btn-box">
-                <div id="the-first-btn" class="cat-btn show_btn">类型</div>
+<%- include('_partial/cat-bar') %>
+<div class="cat-box">
+    <div class="cat-title">类目：</div>
+    <div class="cat-list">
+        <% site.categories.data.sort((a, b) => b.posts.length - a.posts.length).forEach(function(category) { %>
+            <div class="cat-item">
+                <a href="<%- url_for(category.path) %>"><%= category.name %>(<%= category.posts.length %>)</a>
             </div>
-            <div class="btn-box">
-                <div id="the-second-btn" class="cat-btn">作者</div>
-            </div>
-            <div class="btn-box">
-                <div id="the-third-btn" class="cat-btn">系列</div>
-            </div>
-            <div class="btn-box">
-                <a href="<%- url_for('/tags') %>" class="cat-btn">查看全部<i class="fa fa-angle-double-right"></i></a>
-            </div>
-        </div>
+        <% }) %>
     </div>
-    <section id="first-ul" class="archive-list">
+</div>
+<% if (!posts.length) { %>
+    <section  class="archive-list">
         <% site.categories.each(function (category) { %>
             <a  href="<%- url_for(category.path) %>" class="archive-sub" id="<%= category.name %>">
                 <i class="fa fa-genderless"></i>
@@ -54,11 +48,8 @@
                                 <%= post.title %>
                             </a>
                             <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">
-                                by：<%= post.tags.data[0].name %>
+                                <%= post.tags.data[0].name %>
                             </a>
-                            <% if (post.tags.data.length > 1) { %>
-                                <a class="archive-info" href="<%- url_for(post.tags.data[1].path) %>">《<%= post.tags.data[1].name.replace("》》》", "") %>》</a>
-                            <% } %>
                         </div>
                     </li>
                 <% }) %>
@@ -68,93 +59,6 @@
             </ul>
         <% }) %>
     </section>
-    <section id="second-ul" class="archive-list hiding">
-        <% var series_list = [] %>
-        <% site.tags.each(function (tag) { %>
-            <%  if (!(tag.name.includes("》》》"))) { %>
-                <a href="<%- url_for(tag.path) %>" class="archive-sub" id="<%= tag.name %>">
-                    <i class="fa fa-genderless"></i>
-                    <%= tag.name %>
-                </a>
-                <% 
-                    let tag_posts = tag.posts,
-                        too_long = false
-                    tag_posts.data.sort((a, b) => b.date - a.date)
-                %>
-                <% if (tag_posts.length > theme.max_type_each) { %>
-                    <% 
-                        tag_posts = tag_posts.slice(0, short_longth)
-                        too_long = true
-                    %>
-                <% } %>
-                <ul class="archive">
-                    <% tag_posts.forEach(function (post) { %>
-                        <li>
-                            <span class="archive-date">
-                                <%= date(post.date, "YY-MM-DD" ) %>
-                            </span>
-                            <div class="archive-main">
-                                <a class="archive-title" href="<%- url_for(post.path) %>">
-                                    <%= post.title %>
-                                </a>
-                                <a class="archive-info" href="<%- url_for(post.categories.data[0].path) %>">
-                                    <%= post.categories.data[0].name %>
-                                </a>
-                                <% if (post.tags.data.length > 1) { %>
-                                    <a class="archive-info" href="<%- url_for(post.tags.data[1].path) %>">《<%= post.tags.data[1].name.replace("》》》", "") %>》</a>
-                                <% } %>
-                            </div>
-                        </li>
-                    <% }) %>
-                    <% if (too_long) { %>
-                        <a class="archive-more" href="<%- url_for(tag.path) %>">查看更多<i class="fa fa-angle-double-right"></i></a>
-                    <% } %>
-                </ul>
-            <% } else { series_list.push(tag) }})%>
-    </section>
-    <section id="third-ul" class="archive-list hiding">
-        <% series_list.forEach(function (tag) { %>
-            <a href="<%- url_for(tag.path) %>" class="archive-sub" id="<%= tag.name.replace("》》》", "") %>">
-                <i class="fa fa-genderless"></i>
-                <%= tag.name.replace("》》》", "") %>
-            </a>
-            <a class="archive-info" href="<%- url_for(tag.posts.data[0].categories.data[0].path) %>">
-                <%= tag.posts.data[0].categories.data[0].name %>
-            </a>
-            <% 
-                let tag_posts = tag.posts,
-                    too_long = false
-                tag_posts.data.sort((a, b) => b.date - a.date)
-            %>
-            <% if (tag_posts.length > short_longth) { %>
-                <% 
-                    tag_posts = tag_posts.slice(0, short_longth)
-                    too_long = true
-                %>
-            <% } %>  
-            <ul class="archive">       
-                <% tag_posts.forEach(function(post) { %>
-                    <li>
-                        <span class="archive-date">
-                            <%= date(post.date, "YY-MM-DD" ) %>
-                        </span>
-                        <div class="archive-main">
-                            <a class="archive-title" href="<%- url_for(post.path) %>">
-                                <%= post.title %>
-                            </a>
-                            <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">
-                            by：<%= post.tags.data[0].name %>
-                            </a>
-                        </div>
-                    </li>
-                <% }) %>
-                <% if (too_long) { %>
-                    <a class="archive-more" href="<%- url_for(tag.path) %>">查看更多<i class="fa fa-angle-double-right"></i></a>
-                <% } %>
-            </ul>
-        <% }) %> 
-    </section>
-    <%- js('js/btn-switch.js') %>
 <% } else { %>
     <section class="archive-list">
         <ul class="archive">
@@ -167,7 +71,9 @@
                     <span class="archive-date"><%= date(post.date, "YY.MM.DD") %></span>
                     <div class="archive-main">
                         <a class="archive-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
-                        <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">by：<%= post.tags.data[0].name %></a>
+                        <a class="archive-info" href="<%- url_for(post.tags.data[0].path) %>">
+                            <%= post.tags.data[0].name %>
+                        </a>
                     </div>
                 </li>
             <% }) %>

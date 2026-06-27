@@ -345,7 +345,7 @@ const handleCommentSubmit = (e) => {
 		const goButton = pageJump.querySelector('.page-jump-go');
 
 		if (pageInput && goButton) {
-			goButton.addEventListener('click', () => {
+			const doJump = () => {
 				const targetPage = parseInt(pageInput.value, 10);
 				const maxPage = parseInt(pageInput.getAttribute('max'), 10);
 
@@ -361,18 +361,26 @@ const handleCommentSubmit = (e) => {
 					return;
 				}
 
-				const url = new URL(window.location.href);
-				if (targetPage === 1) {
-					url.searchParams.delete('paged');
+				const base = pageInput.getAttribute('data-base');
+				if (base) {
+					const targetUrl = targetPage === 1 ? base : base + 'page/' + targetPage + '/';
+					window.location.href = targetUrl;
 				} else {
-					url.searchParams.set('paged', targetPage);
+					const url = new URL(window.location.href);
+					if (targetPage === 1) {
+						url.searchParams.delete('paged');
+					} else {
+						url.searchParams.set('paged', targetPage);
+					}
+					window.location.href = url.toString();
 				}
-				window.location.href = url.toString();
-			});
+			};
+
+			goButton.addEventListener('click', doJump);
 
 			pageInput.addEventListener('keypress', (e) => {
 				if (e.key === 'Enter') {
-					goButton.click();
+					doJump();
 				}
 			});
 		}
