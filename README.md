@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/wordcard/img/logo.png" width="200" height="200" alt="Word Card">  
+  <img src="source/img/logo.png" width="200" height="200" alt="Word Card">  
   
   # Word Card
 
