@@ -1,93 +1,51 @@
-![One-paper 预览图](https://raw.githubusercontent.com/zheli-design/hexo-theme-one-paper/main/source/img/one-paper.png)
+<div align="center">
+  <img src="/wordcard/img/logo.png" width="200" height="200" alt="Word Card">  
+  
+  # Word Card
 
+ Word Card - 简洁、优雅、文字阅读向的WordPress主题
 
+ WordPress 版 : [github.com/kankezhiyan/word-card-hexo](github.com/kankezhiyan/word-card)
+  
+  [![Github last commit date](https://img.shields.io/github/last-commit/kankezhiyan/word-card?style=for-the-badge&color=ff69b4&label=Updated&logo=github&cacheSeconds=600)](https://github.com/kankezhiyan/word-card-hexo/commits)
+  [![License](https://img.shields.io/github/license/kankezhiyan/word-card-hexo?style=for-the-badge&color=3399cc&label=License&logo=apache&cacheSeconds=2592000)](https://github.com/kankezhiyan/word-card-hexo/blob/main/LICENSE)
+  [![Author]( https://img.shields.io/badge/author-kankezhiyan-yellow?style=for-the-badge)](https://github.com/kankezhiyan)
+  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kankezhiyan/word-card-hexo?style=for-the-badge)
+  ![Vision](https://img.shields.io/badge/Vision-V1.0.0-FF69B4?style=for-the-badge)
+  
+  </div>
 
-这是一个 [Hexo](https://hexo.io/) 主题，设计、开发于 2022 年 2 月。
+# 展示
 
-这是一个「小而美」的主题，实话说，它应该叫做「skin」而不是「theme」，可这又有什么所谓呢 :-)
+![展示](show.png)
 
-我不想把这个主题做成一个「大而全」的东西，它仅仅针对于 **写作**，你也可以理解为是 **传统意义上的博客**。主要是以 **朴素干净轻量** 为主。它的第一视觉效果是一张白纸，希望可以模拟在实体纸张阅读上的感受。
+# 状态
 
-功能上尽量与官方的靠齐，非必要不新增。
+> + 基础功能已完备，细节修缮中
+> + 丰富功能将进行大版本更新
 
+# 特性
 
++ **简洁优雅** - 使用 word card 前端框架，简洁优雅，仿墨水屏
++ **多端通用** - 支持PC、平板、手机，自适应各种屏幕尺寸
++ **轻量体积** - 主题文件体积小，加载速度快
++ **定制简单** - 可自定义主题色、顶栏、Banner等，提供了丰富的自定义选项
++ **时间模式** - 支持白昼、日落，晚间，夜间，微光五种时间模式，并可以根据时间自动切换或跟随系统夜间模式
++ **内容支持** - 首页、文章主页、Tag主页、分类主页、自定义页面
++ **其他** - Banner 支持官方一言展示或自定义一言等
 
-### Live Demo
+# 注意
 
-[https://zheli.design/one-paper](https://zheli.design/one-paper)
+Word Card 使用 [GPL V3.0](https://github.com/kankezhiyan/word-card-hexo/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
 
+您**必须在页脚保留 Word Card 主题的名称及其链接**，否则请不要使用 Word Card 主题。
 
+# TODO
 
-### 功能
-
--   响应式设计，兼容手机端、pad 端以及 PC 端；
--   支持所有现代浏览器；
--   Markdown 常用格式支持；
--   代码高亮、行数显示支持；
--   目前版本支持的模版页：首页、文章详情页、归档页、单页；
--   无预留评论位置（后续可能会安排）。
-
-
-
-### 安装
-
-1.   下载 zip 压缩包并解压；
-2.   Terminal 中 `Control + C` 停止 Hexo 服务；
-3.   复制 one-paper 到 hexo/themes 目录下；
-4.   更改 _config.yml 配置：`theme: one-paper`；
-5.   `hexo s` 预览效果。
-
-
-
-### 内置第三方字体
-
-主题内置了一个 [Google 字体 Montserrat](https://fonts.google.com/specimen/Montserrat)，如果不喜欢或有其他原因的，请删改以下三处内容：
-
-1.   source/fonts 中的所有文件
-2.   source/css/fonts.css
-3.   source/css/style.css 中 line 21 的 `Montserrat`：
-
-```css
-body
-{
-    font-family: "Montserrat", "SF UI Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Helvetica Neue", Helvetica, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-}
-```
-
-
-
-### 已开启高亮代码
-
-主题内置了 [highlightjs](https://highlightjs.org/) 以及 [highlightjs-line-numbers.js](https://github.com/wcoder/highlightjs-line-numbers.js) 两个插件，默认启用，无需手动开启。如无效果，请将 hexo/_config.yml 中的以下两处 `true` 改为 `false`：
-
-```yml
-highlight:
-  enable: false
-prismjs:
-  enable: false
-```
-
-
-
-### 更换 favicon
-
-请同命名覆盖替换 source/img/favicon.png 图片。
-
-
-
-### 其他
-
--   如果你觉得主题不错，欢迎分享出去；使用中遇到问题，可以在 [GitHub Issues](https://github.com/zheli-design/hexo-theme-one-paper/issues) 提交反馈；
--   如果你熟悉 Hexo、Wordpress 主题开发，正巧缺设计，也可以与我 [取得联系](https://zheli.design/)。
-
-
-
-### 作者
-
-[這李設計](https://zheli.design/)
-
-
-
-### 版权声明
-
-遵守 [MIT License](https://zh.wikipedia.org/wiki/MIT許可證) 协议
++ [  ] 多语言
++ [  ] 短代码支持
++ [  ] pjax支持
++ [  ] 自定义字体支持
++ [  ] 支持图片放大预览
++ [  ] 支持背景图片自定义
++ [  ] 支持主题色自定义
