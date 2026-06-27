@@ -5,7 +5,7 @@
 
  Word Card - 简洁、优雅、文字阅读向的Hexo主题
 
- WordPress 版 : [github.com/kankezhiyan/word-card-hexo](github.com/kankezhiyan/word-card)
+ WordPress 版 : [github.com/kankezhiyan/word-card](github.com/kankezhiyan/word-card)
   
   [![Github last commit date](https://img.shields.io/github/last-commit/kankezhiyan/word-card?style=for-the-badge&color=ff69b4&label=Updated&logo=github&cacheSeconds=600)](https://github.com/kankezhiyan/word-card-hexo/commits)
   [![License](https://img.shields.io/github/license/kankezhiyan/word-card-hexo?style=for-the-badge&color=3399cc&label=License&logo=apache&cacheSeconds=2592000)](https://github.com/kankezhiyan/word-card-hexo/blob/main/LICENSE)
