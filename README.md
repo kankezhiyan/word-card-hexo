@@ -3,7 +3,7 @@
   
   # Word Card
 
- Word Card - 简洁、优雅、文字阅读向的WordPress主题
+ Word Card - 简洁、优雅、文字阅读向的Hexo主题
 
  WordPress 版 : [github.com/kankezhiyan/word-card-hexo](github.com/kankezhiyan/word-card)
   
