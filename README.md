@@ -5,15 +5,20 @@
 
  Word Card - 简洁、优雅、文字阅读向的Hexo主题
 
- WordPress 版 : [github.com/kankezhiyan/word-card](github.com/kankezhiyan/word-card)
+ [WordPress 版](github.com/kankezhiyan/word-card-theme)
   
-  [![Github last commit date](https://img.shields.io/github/last-commit/kankezhiyan/word-card?style=for-the-badge&color=ff69b4&label=Updated&logo=github&cacheSeconds=600)](https://github.com/kankezhiyan/word-card-hexo/commits)
-  [![License](https://img.shields.io/github/license/kankezhiyan/word-card-hexo?style=for-the-badge&color=3399cc&label=License&logo=apache&cacheSeconds=2592000)](https://github.com/kankezhiyan/word-card-hexo/blob/main/LICENSE)
+  [![Github last commit date](https://img.shields.io/github/last-commit/kankezhiyan/hexo-theme-word-card?style=for-the-badge&color=ff69b4&label=Updated&logo=github&cacheSeconds=600)](https://github.com/kankezhiyan/hexo-theme-word-card/commits)
+  [![License](https://img.shields.io/github/license/kankezhiyan/hexo-theme-word-card?style=for-the-badge&color=3399cc&label=License&logo=apache&cacheSeconds=2592000)](https://github.com/kankezhiyan/hexo-theme-word-card/blob/main/LICENSE)
   [![Author]( https://img.shields.io/badge/author-kankezhiyan-yellow?style=for-the-badge)](https://github.com/kankezhiyan)
-  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kankezhiyan/word-card-hexo?style=for-the-badge)
-  ![Vision](https://img.shields.io/badge/Vision-V1.0.0-FF69B4?style=for-the-badge)
+  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kankezhiyan/hexo-theme-word-card?style=for-the-badge)
+  [![GitHub Release Date](https://img.shields.io/github/release-date/kankezhiyan/hexo-theme-word-card?style=for-the-badge)](https://github.com/kankezhiyan/hexo-theme-word-card/releases)
+  [![GitHub release](https://img.shields.io/github/v/release/kankezhiyan/hexo-theme-word-card?color=%235e72e4&style=for-the-badge)](https://github.com/kankezhiyan/hexo-theme-word-card/releases)
   
   </div>
+
+# 关于
+
+这是WordPress主题 [word-card-theme](github.com/kankezhiyan/word-card-theme)的hexo移植版，感谢[hexo-theme-one-paper](https://github.com/ liruiying728/hexo-theme-one-paper)对本主题的启发。
 
 # 展示
 
@@ -36,7 +41,7 @@
 
 # 注意
 
-Word Card 使用 [GPL V3.0](https://github.com/kankezhiyan/word-card-hexo/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
+Word Card 使用 [GPL V3.0](https://github.com/kankezhiyan/hexo-theme-word-card/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
 
 您**必须在页脚保留 Word Card 主题的名称及其链接**，否则请不要使用 Word Card 主题。
 
