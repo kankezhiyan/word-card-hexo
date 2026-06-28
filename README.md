@@ -18,7 +18,7 @@
 
 # 关于
 
-这是WordPress主题 [word-card-theme](github.com/kankezhiyan/word-card-theme)的hexo移植版，感谢[hexo-theme-one-paper](https://github.com/ liruiying728/hexo-theme-one-paper)对本主题的启发。
+这是WordPress主题 [word-card-theme](github.com/kankezhiyan/word-card-theme)的hexo移植版，感谢 [hexo-theme-one-paper](https://github.com/liruiying728/hexo-theme-one-paper) 对本主题的启发。
 
 # 展示
 
